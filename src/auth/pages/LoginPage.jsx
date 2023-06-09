@@ -16,10 +16,7 @@ export const LoginPage = () => {
 
     // using custom hook and passing the current values
     // we get from this custom hook the value of email and password, and a function to handle change on inputs.
-    const { email, password, onInputChange } = useForm({
-        email: '',
-        password: ''
-    });
+    const { email, password, onInputChange } = useForm({ email: '', password: '' });
 
 
     // when status change, we compare this 'status' against value `checking` and memorize the boolean value
@@ -29,6 +26,8 @@ export const LoginPage = () => {
     const onSubmit = (event) => {
 
         event.preventDefault();
+
+        // ! no es esta la accion a despachar
         dispatch( checkingAuthentication() );
     }
     // function to handle google button
@@ -44,11 +43,11 @@ export const LoginPage = () => {
 
                 <Grid container>
 
-                    <Grid item xs={12} sx={{ mt: 2 }}>
+                    <Grid item xs={12} sx={{ mt: 3 }}>
                         <TextField
-                            label="Correo"
+                            label="Email"
                             type="email"
-                            placeholder="correo@google.com"
+                            placeholder="email@google.com"
                             fullWidth
                             name="email"
                             value={email}
@@ -58,9 +57,9 @@ export const LoginPage = () => {
 
                     <Grid item xs={12} sx={{ mt: 2 }}>
                         <TextField
-                            label="Contraseña"
+                            label="Password"
                             type="password"
-                            placeholder="Contraseña"
+                            placeholder="%&1#23asd"
                             fullWidth
                             name="password"
                             value={password}
