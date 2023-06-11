@@ -5,7 +5,10 @@ const drawerWidth = 240;
 
 export const JournalLayout = ({ children }) => {
     return (
-        <Box sx={{ display: 'flex' }}>
+        <Box 
+            sx={{ display: 'flex' }}
+            className='amimate__animated animate__fadeIn animate__faster'
+        >
 
             <Navbar drawerWidth={ drawerWidth } />
 
