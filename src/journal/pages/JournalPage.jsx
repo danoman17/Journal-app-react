@@ -11,6 +11,8 @@ export const JournalPage = () => {
             {/* <NothingSelectedView /> */}
             <NoteView />
 
+
+            {/* Red button to add a new post */}
             <IconButton
                 size='large'
                 sx={{

@@ -9,12 +9,18 @@ import './styles.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 
+	/* make sure you remove stric mode */
 	<React.StrictMode>
 
+		{/* We set our provider (when using Redux) */}
 		<Provider store={ store }>
+
 			<BrowserRouter>
+
 				<JournalApp />
+				
 			</BrowserRouter>
+
 		</Provider>
 
 

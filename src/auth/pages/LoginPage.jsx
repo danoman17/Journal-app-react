@@ -10,7 +10,7 @@ import { startGoogleSignIn, startLoginWithEmailPassword } from '../../store/auth
 
 export const LoginPage = () => {
 
-    // we use dispatch and useSelector in order to use our sliceces and handle the state
+    // we use dispatch and useSelector in order to use our slices and handle the state
     const { status, errorMessage } = useSelector(state => state.auth);
     const dispatch = useDispatch();
 
@@ -22,29 +22,32 @@ export const LoginPage = () => {
     // when status change, we compare this 'status' against value `checking` and memorize the boolean value
     const isAuthenticating = useMemo(() => status === 'checking', [status]);
 
-    // function to handle form submit action
+    // function to handle form submit action (login with email and password)
     const onSubmit = (event) => {
-
         event.preventDefault();
         dispatch(startLoginWithEmailPassword({ email, password }));
     }
-    // function to handle google button
+    // function to handle google button (google with google account)
     const onGoogleSignIn = () => {
-
         dispatch(startGoogleSignIn());
     }
 
     return (
         <AuthLayout title='Login'>
 
-            <form 
+            {/* text field/form section */}
+            <form
                 onSubmit={onSubmit}
                 className='animate__animated animate__fadeIn animate__faster'
             >
 
                 <Grid container>
 
-                    <Grid item xs={12} sx={{ mt: 3 }}>
+                    <Grid
+                        item
+                        xs={12}
+                        sx={{ mt: 3 }}
+                    >
                         <TextField
                             label="Email"
                             type="email"
@@ -56,7 +59,11 @@ export const LoginPage = () => {
                         />
                     </Grid>
 
-                    <Grid item xs={12} sx={{ mt: 2 }}>
+                    <Grid
+                        item
+                        xs={12}
+                        sx={{ mt: 2 }}
+                    >
                         <TextField
                             label="Password"
                             type="password"
@@ -68,16 +75,15 @@ export const LoginPage = () => {
                         />
                     </Grid>
 
-
-                    <Grid 
+                    {/* error message section */}
+                    <Grid
                         container
                         display={!!errorMessage ? '' : 'none'}
-                        sx={{ mt: 1}}
+                        sx={{ mt: 1 }}
                     >
                         <Grid
                             item
                             xs={12}
-                            
                         >
                             <Alert severity='error'>
                                 {errorMessage}
@@ -85,8 +91,15 @@ export const LoginPage = () => {
                         </Grid>
                     </Grid>
 
-                    <Grid container spacing={2} sx={{ mb: 2, mt: 1 }}>
-
+                    {/* button section */}
+                    <Grid
+                        container
+                        spacing={2}
+                        sx={{
+                            mb: 2,
+                            mt: 1
+                        }}
+                    >
                         <Grid item xs={12} sm={6}>
                             <Button
                                 disabled={isAuthenticating}
@@ -109,11 +122,10 @@ export const LoginPage = () => {
                                 <Google />
                                 <Typography sx={{ ml: 1 }}>Google</Typography>
                             </Button>
-
                         </Grid>
-
                     </Grid>
 
+                    {/* Link to create new account */}
                     <Grid container direction='row' justifyContent='end'>
                         <Link component={RouterLink} color='inherit' to="/auth/register">
                             Crear una cuenta

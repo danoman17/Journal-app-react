@@ -3,16 +3,20 @@ import { AppBar, Grid, IconButton, Toolbar, Typography } from "@mui/material"
 import { useDispatch } from "react-redux"
 import { startLogout } from "../../store/auth/thunks";
 
+
+
+/* navbar with a 240px left (drawer) space  */
 export const Navbar = ({ drawerWidth = 240 }) => {
 
-	const dispatch = useDispatch();
+	const dispatch = useDispatch(); // usigna dispatch to trigger slice methods
 
+	//function to logout 
 	const onLogout = () => {
 		dispatch( startLogout() );
 	}
 
-
 	return (
+
 		<AppBar
 			position='fixed'
 			sx={{
@@ -32,16 +36,20 @@ export const Navbar = ({ drawerWidth = 240 }) => {
 					<MenuOutlined />
 				</IconButton>
 
-				<Grid container direction='row' justifyContent='space-between' alignItems='center'>
-					<Typography variant='h6' noWrap component='div'> JournalApp </Typography>
+				<Grid 
+					container 
+					direction='row' 
+					justifyContent='space-between' 
+					alignItems='center'
+				>
+					<Typography variant='h6' noWrap component='div'> Journal </Typography>
 					<IconButton
 						color='error'
-						onClick={onLogout}
+						onClick={ onLogout }
 					>
 						<LogoutOutlined/>
 					</IconButton>
 				</Grid>
-
 			</Toolbar>
 		</AppBar>
 	)

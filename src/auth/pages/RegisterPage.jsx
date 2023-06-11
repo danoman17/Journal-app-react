@@ -22,13 +22,17 @@ const formValidations = {
 
 export const RegisterPage = () => {
 
+    // we use dispatch and useSelector in order to use our slices and handle the state
+    const { status, errorMessage } = useSelector(state => state.auth);
     const dispatch = useDispatch();
+
+    // useState hook to know if the form has been submited or not.
     const [formSubmitted, setFormSubmitted] = useState(false);
 
-    const { status, errorMessage } = useSelector(state => state.auth);
+    // when status change, we compare this 'status' against value `checking` and memorize the boolean value
     const isCheckingAuthentication = useMemo(() => status === 'cheking', [status]);
 
-    // using our custom hook useForm handle in order to handle the submit action
+    // using our custom hook 'useForm' to handle in order to handle the submit action
     const {
         formState, displayName, email, password, onInputChange,
         isFormValid, displayNameValid, emailValid, passwordValid,
@@ -37,20 +41,22 @@ export const RegisterPage = () => {
 
     // function to trigger the action
     const onSubmit = (e) => {
+
         e.preventDefault();
-        setFormSubmitted(true);
+        setFormSubmitted(true); // we set true submitted flag
 
-        if (!isFormValid) return;
-
-        dispatch(startCreatingUserWithEmailPassword(formState));
+        if (!isFormValid) return; // if the form is not valid, we return the function
+        dispatch( startCreatingUserWithEmailPassword( formState ) ); // if everuthing went well, we start creating a new user
     }
 
 
     return (
+
         <AuthLayout title='Crear cuenta'>
 
-            <form 
-                onSubmit={onSubmit} 
+            {/* Form/text fields section */}
+            <form
+                onSubmit={onSubmit}
                 className='animate__animated animate__fadeIn animate__faster'
             >
                 <Grid container>
@@ -96,6 +102,7 @@ export const RegisterPage = () => {
                         />
                     </Grid>
 
+                    {/* Message error and button section */}
                     <Grid container spacing={2} sx={{ mb: 2, mt: 1 }}>
 
                         <Grid
@@ -121,6 +128,7 @@ export const RegisterPage = () => {
                         </Grid>
                     </Grid>
 
+                    {/* footer section */}
                     <Grid container direction='row' justifyContent='end'>
                         <Typography sx={{ mr: 1 }} > ¿Ya tienes cuenta? </Typography>
                         <Link component={RouterLink} color='inherit' to="/auth/login">

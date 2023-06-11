@@ -1,6 +1,8 @@
 import { CircularProgress, Grid } from '@mui/material'
 import React from 'react'
 
+/* Login Animation used when we're authenticating a user */
+
 export const CheckingAuth = () => {
     return (
 
@@ -17,9 +19,10 @@ export const CheckingAuth = () => {
                 direction='row'
                 justifyContent='center'
             >
-                <CircularProgress color='warning'/>
+                <CircularProgress color='warning' />
             </Grid>
+            
         </Grid>
 
-            )
+    )
 }

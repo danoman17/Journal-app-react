@@ -3,8 +3,10 @@ import { Box, Divider, Drawer, Grid, List, ListItem, ListItemButton, ListItemIco
 import { useSelector } from 'react-redux';
 
 
+/* sidebar initial width value of 240 */
 export const Sidebar = ({ drawerWidth = 240 }) => {
 
+    // we use useSelector hook to access displayName value
     const { displayName } = useSelector(state => state.auth);
 
     return (
@@ -60,7 +62,6 @@ export const Sidebar = ({ drawerWidth = 240 }) => {
                         ))
                     }
                 </List>
-
             </Drawer>
 
         </Box>

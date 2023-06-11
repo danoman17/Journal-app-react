@@ -2,6 +2,10 @@ import { SaveOutlined } from "@mui/icons-material"
 import { Button, Grid, TextField, Typography } from "@mui/material"
 import { ImageGallery } from "../components"
 
+/* 
+    view when user wants to create a new post
+ */
+
 export const NoteView = () => {
     return (
         <Grid 
@@ -9,15 +13,24 @@ export const NoteView = () => {
             container 
             direction='row' 
             justifyContent='space-between' 
-            alignItems='center' sx={{ mb: 1 }}
+            alignItems='center' 
+            sx={{ mb: 1 }}
         >
 
             <Grid item>
-                <Typography fontSize={39} fontWeight='light'>28 de Agosto, 2023</Typography>
+                <Typography 
+                    fontSize={39} 
+                    fontWeight='light'
+                >
+                    28 de Agosto, 2023
+                </Typography>
             </Grid>
 
             <Grid item>
-                <Button color='primary' sx={{ padding: 2 }}>
+                <Button 
+                    color='primary' 
+                    sx={{ padding: 2 }}
+                >
                     <SaveOutlined sx={{ fontSize: 30, mr: 1 }} />
                     Guardar
                 </Button>
@@ -30,7 +43,7 @@ export const NoteView = () => {
                     fullWidth
                     placeholder="Ingrese un titulo"
                     label="Titulo"
-                    sx={{ border: 'none', mb: 1 }}
+                    sx={{ border: 'none', mb: 1.5 }}
                 />
 
                 <TextField
