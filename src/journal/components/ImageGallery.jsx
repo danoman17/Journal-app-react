@@ -1,6 +1,6 @@
 import { ImageList, ImageListItem } from '@mui/material';
 
-
+/* image gallery */
 export const ImageGallery = () => {
     return (
         <ImageList sx={{ width: '100%', height: 500 }} cols={ 4 } rowHeight={ 200 }>
