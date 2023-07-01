@@ -17,7 +17,6 @@ export const startGoogleSignIn = () => {
         dispatch( chekingCredentials() ); // started checking credentials
         const result = await signInWithGoogle(); // we get info from firebase and google auth
 
-        console.log(result);
         // if the result negative flag `ok:false` we trigger logout slice method and send error message as payload
         if( !result.ok ) return dispatch( logout( result.errorMessage ) ); 
         // if everything went well, we trigger logout slice method sendig result as payload.

@@ -10,6 +10,10 @@ export const useForm = (initialForm = {}, formValidations = {}) => {
         createValidators();
     }, [formState]);
 
+    useEffect(() => {
+        setFormState( initialForm );
+    }, [initialForm]);
+
     // evaluates if the form whether is valid or not, it triggers everytime formValidation updates
     const isFormValid = useMemo(() => {
 

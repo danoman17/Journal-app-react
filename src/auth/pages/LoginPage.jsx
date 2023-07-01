@@ -8,6 +8,12 @@ import { useForm } from '../../hooks';
 import { startGoogleSignIn, startLoginWithEmailPassword } from '../../store/auth';
 
 
+const formData = { 
+    email: '', 
+    password: '' 
+};
+
+
 export const LoginPage = () => {
 
     // we use dispatch and useSelector in order to use our slices and handle the state
@@ -16,7 +22,7 @@ export const LoginPage = () => {
 
     // using custom hook and passing the current values
     // we get from this custom hook the value of email and password, and a function to handle change on inputs.
-    const { email, password, onInputChange } = useForm({ email: '', password: '' });
+    const { email, password, onInputChange } = useForm( formData );
 
 
     // when status change, we compare this 'status' against value `checking` and memorize the boolean value
