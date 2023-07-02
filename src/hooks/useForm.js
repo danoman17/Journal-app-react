@@ -10,6 +10,7 @@ export const useForm = (initialForm = {}, formValidations = {}) => {
         createValidators();
     }, [formState]);
 
+    // we only want to renderize once, so we use this hook
     useEffect(() => {
         setFormState( initialForm );
     }, [initialForm]);

@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from '../../hooks';
 import { startGoogleSignIn, startLoginWithEmailPassword } from '../../store/auth';
 
-
+// we set this object, in order to handle re renderize error in Login View
 const formData = { 
     email: '', 
     password: '' 
