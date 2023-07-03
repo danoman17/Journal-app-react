@@ -2,11 +2,12 @@ import { LogoutOutlined, MenuOutlined } from "@mui/icons-material"
 import { AppBar, Grid, IconButton, Toolbar, Typography } from "@mui/material"
 import { useDispatch } from "react-redux"
 import { startLogout } from "../../store/auth/thunks";
+import { drawerHandle } from "../../helpers";
 
 
 
 /* navbar with a 240px left (drawer) space  */
-export const Navbar = ({ drawerWidth = 240 }) => {
+export const Navbar = ({ drawerWidth = 240, setOpen }) => {
 
 	const dispatch = useDispatch(); // usigna dispatch to trigger slice methods
 
@@ -28,6 +29,7 @@ export const Navbar = ({ drawerWidth = 240 }) => {
 				<IconButton
 					color='inherit'
 					edge='start'
+					onClick={ drawerHandle(setOpen, true) }
 					sx={{
 						mr: 2,
 						display: { sm: 'none' }
