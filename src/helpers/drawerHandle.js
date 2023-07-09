@@ -1,3 +1,4 @@
+//helper that handle the drawer component state
 
 export const drawerHandle = ( setOpen, value ) =>(event) => {
 
@@ -5,6 +6,6 @@ export const drawerHandle = ( setOpen, value ) =>(event) => {
         return;
     }
 
-    setOpen(value);
+    setOpen(value); // setting the value 
 
 };

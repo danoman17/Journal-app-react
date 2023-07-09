@@ -10,7 +10,9 @@ const drawerWidth = 240;
 */
 export const JournalLayout = ({ children }) => {
 
-    const [open, setOpen] = useState(false);
+
+    //state hook represents the Drawer's state at Sidebar component.
+    const [open, setOpen] = useState(false); // starts in false
 
 
     return (
