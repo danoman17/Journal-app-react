@@ -8,9 +8,9 @@ import { useForm } from '../../hooks';
 import { startGoogleSignIn, startLoginWithEmailPassword } from '../../store/auth';
 
 // we set this object, in order to handle re renderize error in Login View
-const formData = { 
-    email: '', 
-    password: '' 
+const formData = {
+    email: '',
+    password: ''
 };
 
 
@@ -22,7 +22,7 @@ export const LoginPage = () => {
 
     // using custom hook and passing the current values
     // we get from this custom hook the value of email and password, and a function to handle change on inputs.
-    const { email, password, onInputChange } = useForm( formData );
+    const { email, password, onInputChange } = useForm(formData);
 
 
     // when status change, we compare this 'status' against value `checking` and memorize the boolean value
@@ -35,14 +35,15 @@ export const LoginPage = () => {
     }
     // function to handle google button (google with google account)
     const onGoogleSignIn = () => {
+        console.log('onGoogleSignIn');
         dispatch(startGoogleSignIn());
     }
 
     return (
         <AuthLayout title='Login'>
-
             {/* text field/form section */}
             <form
+                aria-label='submit-form'
                 onSubmit={onSubmit}
                 className='animate__animated animate__fadeIn animate__faster'
             >
@@ -73,9 +74,12 @@ export const LoginPage = () => {
                         <TextField
                             label="Password"
                             type="password"
-                            placeholder="%&1#23asd"
+                            placeholder="Contraseña"
                             fullWidth
                             name="password"
+                            inputProps={{
+                                'data-testid':'password'
+                            }}
                             value={password}
                             onChange={onInputChange}
                         />
@@ -123,6 +127,7 @@ export const LoginPage = () => {
                                 disabled={isAuthenticating}
                                 variant="contained"
                                 fullWidth
+                                aria-label='google-btn'
                                 onClick={onGoogleSignIn}
                             >
                                 <Google />

@@ -10,8 +10,7 @@ export const journalSlice = createSlice({
         notes: [], // Array to store journal notes
         active: null, // Currently active note
 
-
-        // Example structure for active note
+        //! Example structure for active note
         // active: { 
         //     id:'ABC123',
         //     title: '',

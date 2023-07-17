@@ -12,7 +12,7 @@ export const authSlice = createSlice({
         errorMessage: null, // Error message related to authentication
     },
     reducers: {
-        // Reducer: login
+        //* Reducer: login
         login: (state, { payload }) => {
             state.status = 'authenticated'; // Set status to 'authenticated'
             state.uid = payload.uid; // Set user ID
@@ -22,7 +22,7 @@ export const authSlice = createSlice({
             state.errorMessage = null; // Clear error message
         },
 
-        // Reducer: logout
+        //* Reducer: logout
         logout: (state, { payload }) => {
             state.status = 'not-authenticated'; // Set status to 'not-authenticated'
             state.uid = null; // Clear user ID
@@ -32,7 +32,7 @@ export const authSlice = createSlice({
             state.errorMessage = payload?.errorMessage; // Set error message if provided in the payload
         },
 
-        // Reducer: chekingCredentials
+        //* Reducer: chekingCredentials
         chekingCredentials: (state) => {
             state.status = 'checking'; // Set status to 'checking'
         },

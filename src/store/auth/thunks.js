@@ -41,6 +41,7 @@ export const startLoginWithEmailPassword = ({ email, password }) => {
     }
 }
 
+// TODO: tarea en tests 
 // function to create a new user with email and password
 export const startCreatingUserWithEmailPassword = ({ email, password, displayName }) => {
     return async(dispatch) => {
