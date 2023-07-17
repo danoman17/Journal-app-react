@@ -35,7 +35,7 @@ export const LoginPage = () => {
     }
     // function to handle google button (google with google account)
     const onGoogleSignIn = () => {
-        console.log('onGoogleSignIn');
+        // console.log('onGoogleSignIn');
         dispatch(startGoogleSignIn());
     }
 
