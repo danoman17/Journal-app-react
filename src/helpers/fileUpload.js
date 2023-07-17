@@ -1,36 +1,35 @@
-
-
-export const fileUpload = async( file ) => {
-
-    // if (!file) throw new Error('No tenemos ningun archivo a subir');
+export const fileUpload = async (file) => {
+    // Check if file exists
     if (!file) return null;
-
+  
+    // URL for cloudinary API
     const cloudUrl = 'https://api.cloudinary.com/v1_1/dqhi0fedb/upload';
-
+  
+    // Create a new FormData object
     const formData = new FormData();
-
-    formData.append('upload_preset','react-journal');
-    formData.append('file',file);
-
+  
+    // Append necessary data to the form
+    formData.append('upload_preset', 'react-journal');
+    formData.append('file', file);
+  
     try {
-        const resp = await fetch( cloudUrl, {
-            method:'POST',
-            body: formData
-        } );
-
-        // console.log(resp);
-
-        if(!resp.ok) throw new Error('No se pudo subit imagen');
-
-        const cloudResp = await resp.json();
-
-        return cloudResp.secure_url;
-
+      // Send a POST request to cloudinary API with the form data
+      const resp = await fetch(cloudUrl, {
+        method: 'POST',
+        body: formData,
+      });
+  
+      // Check if the response is successful
+      if (!resp.ok) throw new Error('No se pudo subir imagen');
+  
+      // Parse the response JSON
+      const cloudResp = await resp.json();
+  
+      // Return the secure URL of the uploaded image
+      return cloudResp.secure_url;
     } catch (error) {
-        // console.log(error);
-        // throw new Error(error.message);
-
-        return null;
+      // Return null in case of any error
+      return null;
     }
-
-}
+  };
+  
